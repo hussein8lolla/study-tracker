@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #f39c12;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.date {
+    text-align: center;
+    font-size: 16px;
+    color: #ecf0f1;
+    background-color: #34495e;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: #e74c3c;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="text"], input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button, .btn {
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover, .btn:hover {
+    background-color: #2980b9;
+}
+
+.logout {
+    background-color: #e74c3c;
+}
+
+.logout:hover {
+    background-color: #c0392b;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.schedule-table th, .schedule-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.schedule-table th {
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+.schedule-table .day {
+    background-color: #2ecc71;
+    color: white;
+    font-weight: bold;
+}
+
+.schedule-table .lecture {
+    font-weight: bold;
+    color: #fff;
+}
+
+.tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.tasks-list li {
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tasks-list li.completed {
+    background-color: #2ecc71;
+}
+
+.tasks-list button {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.tasks-list button:hover {
+    background-color: #e67e22;
+}
+
+.files-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.files-list li {
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.files-list a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.files-list a:hover {
+    text-decoration: underline;
+}
