@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملفات المرفوعة</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>الملفات المرفوعة</h1>
+        <a href="{{ url_for('web_index') }}" class="btn">العودة إلى الجدول</a>
+        <a href="{{ url_for('logout') }}" class="btn logout">تسجيل الخروج</a>
+        <ul class="files-list">
+            {% for file in files %}
+                <li>
+                    <a href="{{ url_for('download_file', filename=file[1]) }}">{{ file[1] }}</a> 
+                    (تم الرفع: {{ file[3] }})
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدول الدراسة</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>جدول الدراسة</h1>
+        <p class="date">{{ date_str }}</p>
+        <a href="{{ url_for('files') }}" class="btn">الملفات المرفوعة</a>
+        <a href="{{ url_for('logout') }}" class="btn logout">تسجيل الخروج</a>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    {% for hour in hours %}
+                        <th>{{ hour }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(days|length) %}
+                    <tr>
+                        <td class="day">{{ days[i] }}</td>
+                        {% for j in range(hours|length) %}
+                            {% if schedule[i][j] == 'merged' %}
+                                <!-- Skip merged cells -->
+                            {% elif schedule[i][j] %}
+                                <td class="lecture" style="background-color: {{ schedule[i][j].color }};" 
+                                    rowspan="{{ schedule[i][j].row_span }}" 
+                                    colspan="{{ schedule[i][j].col_span }}">
+                                    {{ schedule[i][j].name }}
+                                </td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2>المهام اليومية</h2>
+        <ul class="tasks-list">
+            {% for task in tasks %}
+                <li class="{% if task[3] %}completed{% endif %}" data-id="{{ task[0] }}">
+                    {{ task[2] }} [{{ task[1] }}]
+                    <button class="toggle-task" onclick="toggleTask({{ task[0] }}, {{ task[3] }})">{% if task[3] %}إلغاء الإكمال{% else %}إكمال{% endif %}</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
